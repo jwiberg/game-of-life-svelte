@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+.world {
+  display: grid;
+  grid-gap: 0.1em;
+  grid-template-columns: repeat(100, 1fr);
+}
+.dead {
+  width: 1em;
+  height: 1em;
+  background-color: lightgray;
+}
+
+.living {
+  width: 1em;
+  height: 1em;
+  background-color: black;
+}
