@@ -9,11 +9,14 @@
 .dead {
   width: 1em;
   height: 1em;
-  background-color: lightgray;
+  border: 1px solid #F1F5DA;
+  background-color: #C5D6C6;
+  border-radius: 3px;
 }
 
 .living {
   width: 1em;
   height: 1em;
-  background-color: black;
+  background-color: #CC4774;
+  border-radius: 10px;
 }
