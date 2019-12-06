@@ -28,4 +28,5 @@
   class={living[id] ? 'living' : 'dead'}
   data-x={x}
   data-y={y}
+  {id}
   on:click|stopPropagation={() => (living[id] = !living[id])} />

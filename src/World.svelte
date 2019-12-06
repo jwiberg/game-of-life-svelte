@@ -6,7 +6,8 @@
   const ids = [...Array(cols.length * rows.length).keys()]
   let living = new Array(ids.length).fill(false)
 
-  console.log(ids)
+  export let cells = []
+  export let cellsCalculated = []
 
   function getIdForCell() {
     const id = ids[0]
@@ -15,12 +16,25 @@
   }
 
   $: {
-    console.log(living)
+    cellsCalculated.forEach((cell) => {
+      living[cell.id] = true;
+    })
   }
 
-  /*setInterval(() => {
-    console.log("running");
-  }, 1000);*/
+  $: {
+    cells = []
+    living.forEach((isLiving, id) => {
+      if (isLiving) {
+        const data = document.getElementById(id).dataset
+        cells.push({
+          x: data.x,
+          y: data.y, 
+          id: id
+        })
+      }
+    })
+    cells = cells
+  }
 </script>
 
 <style>
