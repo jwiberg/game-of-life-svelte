@@ -12,6 +12,8 @@
     border: 1px solid #f1f5da;
     background-color: #c5d6c6;
     border-radius: 3px;
+    box-shadow: 0 9px #999;
+
   }
 
   .living {
@@ -19,6 +21,7 @@
     min-height: 1em;
     background-color: #cc4774;
     border-radius: 10px;
+    box-shadow: 0 9px #999;
   }
 </style>
 
