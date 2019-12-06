@@ -1,21 +1,21 @@
 <script>
-  import Cell from "./Cell.svelte";
+  import Cell from "./Cell.svelte"
 
-  const cols = [...Array(100).keys()];
-  const rows = [...Array(100).keys()];
-  const ids = [...Array(cols.length * rows.length).keys()];
-  let living = new Array(ids.length).fill(false);
+  const cols = [...Array(100).keys()]
+  const rows = [...Array(100).keys()]
+  const ids = [...Array(cols.length * rows.length).keys()]
+  let living = new Array(ids.length).fill(false)
 
-  console.log(ids);
+  console.log(ids)
 
   function getIdForCell() {
-    const id = ids[0];
-    ids.shift();
-    return id;
+    const id = ids[0]
+    ids.shift()
+    return id
   }
 
   $: {
-    console.log(living);
+    console.log(living)
   }
 
   /*setInterval(() => {

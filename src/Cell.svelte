@@ -1,8 +1,8 @@
 <script>
-  export let living;
-  export let x;
-  export let y;
-  export let id;
+  export let living
+  export let x
+  export let y
+  export let id
 </script>
 
 <style>
@@ -13,7 +13,6 @@
     background-color: #c5d6c6;
     border-radius: 3px;
     box-shadow: 0 9px #999;
-
   }
 
   .living {

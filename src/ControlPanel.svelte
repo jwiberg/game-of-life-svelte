@@ -1,14 +1,14 @@
 <script>
   function start() {
-    console.log("start");
+    console.log("start")
   }
 
   function stop() {
-    console.log("stop");
+    console.log("stop")
   }
 
   function reset() {
-    console.log("reset");
+    console.log("reset")
   }
 </script>
 
