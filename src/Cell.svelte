@@ -15,8 +15,8 @@
 
 <style>
   .dead {
-    min-width: 1em;
-    min-height: 1em;
+    width: 1em;
+    height: 1em;
     border: 1px solid #f1f5da;
     background-color: #c5d6c6;
     border-radius: 3px;
