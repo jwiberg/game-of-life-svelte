@@ -3,14 +3,6 @@
   export let x;
   export let y;
   export let id;
-
-  function cellClicked(event) {
-    if (living[id]) {
-      living[id] = false;
-    } else {
-      living[id] = true;
-    }
-  }
 </script>
 
 <style>
@@ -34,4 +26,4 @@
   class={living[id] ? 'living' : 'dead'}
   data-x={x}
   data-y={y}
-  on:click|stopPropagation={cellClicked} />
+  on:click|stopPropagation="{() => living[id] = !living[id]}" />
