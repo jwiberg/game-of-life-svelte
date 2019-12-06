@@ -1,14 +1,18 @@
 <script>
   import Cell from "./Cell.svelte"
 
+  export let cells = []
+  export let cellsCalculated = []
+
   const cols = [...Array(100).keys()]
   const rows = [...Array(100).keys()]
   const ids = [...Array(cols.length * rows.length).keys()]
   let living = new Array(ids.length).fill(false)
 
-  export let cells = []
-  export let cellsCalculated = []
-
+  /*
+    What if we create grid in on mount...
+  */
+  
   function getIdForCell() {
     const id = ids[0]
     ids.shift()
