@@ -2,12 +2,20 @@
   function start() {
     console.log("start");
   }
+
+  function stop() {
+    console.log("stop");
+  }
+
+  function reset() {
+    console.log("reset");
+  }
 </script>
 
 <style>
   .button-panel {
     position: fixed;
-    top: 4%;
+    top: 5%;
     left: 2.5%;
   }
 
@@ -15,7 +23,7 @@
     font-size: 2em;
     border: 1px solid;
     border-radius: 12px;
-    font-family: fantasy;
+    font-family: cursive;
     outline: none;
     box-shadow: 0 9px #999;
   }
@@ -40,6 +48,6 @@
 
 <div class="button-panel">
   <button class="start" on:click={start}>Start</button>
-  <button class="stop">Stop</button>
-  <button class="reset">Reset</button>
+  <button class="stop" on:click={stop}>Stop</button>
+  <button class="reset" on:click={reset}>Reset</button>
 </div>
