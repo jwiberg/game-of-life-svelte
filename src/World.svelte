@@ -12,7 +12,7 @@
   /*
     What if we create grid in on mount...
   */
-  
+
   function getIdForCell() {
     const id = ids[0]
     ids.shift()
@@ -20,8 +20,8 @@
   }
 
   $: {
-    cellsCalculated.forEach((cell) => {
-      living[cell.id] = true;
+    cellsCalculated.forEach(cell => {
+      living[cell.id] = true
     })
   }
 
@@ -32,7 +32,7 @@
         const data = document.getElementById(id).dataset
         cells.push({
           x: data.x,
-          y: data.y, 
+          y: data.y,
           id: id
         })
       }

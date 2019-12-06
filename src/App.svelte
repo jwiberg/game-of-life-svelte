@@ -6,11 +6,9 @@
   let cellsCalculated = []
 
   setInterval(() => {
-    cells.push(
-      {x: 50, y: 50, id: Math.floor(Math.random() * 9999)}
-    )
+    cells.push({ x: 50, y: 50, id: Math.floor(Math.random() * 9999) })
     cellsCalculated = cells
-  }, 500);
+  }, 500)
 </script>
 
 <ControlPanel />
