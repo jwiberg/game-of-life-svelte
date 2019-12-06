@@ -1,8 +1,12 @@
 <script>
-  const cols = [...Array(100).keys()];
-  const rows = [...Array(100).keys()];
+  import Cell from "./Cell.svelte";
+
+  const cols = [...Array(10).keys()];
+  const rows = [...Array(10).keys()];
   const ids = [...Array(cols.length * rows.length).keys()];
-  const activeCells = new Set();
+  let living = new Array(ids.length).fill(false);
+
+  console.log(ids);
 
   function getIdForCell() {
     const id = ids[0];
@@ -10,39 +14,29 @@
     return id;
   }
 
-  function cellClicked(event) {
-    //const x = event.target.dataset.x;
-    //const y = event.target.dataset.y;
-    toggleCellLivingness(event.target);
+  $: {    
+    console.log(living);
   }
 
-  function toggleCellLivingness(cell) {
-    if (activeCells.has(cell.id)) {
-      activeCells.delete(cell.id);
-      cell.classList.remove("living");
-      cell.classList.add("dead");
-    } else {
-      activeCells.add(cell.id);
-      cell.classList.remove("dead");
-      cell.classList.add("living");
-    }
-  }
+  /*setInterval(() => {
+    console.log("running");
+  }, 1000);*/
 
-  setInterval(() => {
-    console.log(activeCells.size);
-  }, 1000);  
 </script>
+
+<style>
+.world {
+  display: grid;
+  grid-gap: 0.1em;
+  grid-template-columns: repeat(10, 1fr);
+}
+</style>
 
 <main>
   <div class="world">
     {#each cols as c}
       {#each rows as r}
-        <div
-          class="dead"
-          id={getIdForCell()}
-          data-x={c}
-          data-y={r}
-          on:click|stopPropagation={cellClicked} />
+        <Cell x={c} y={r} id={getIdForCell()} bind:living={living} />
       {/each}
     {/each}
   </div>
