@@ -6,7 +6,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "test": "ava",
-    "test-watch": "ava --watch",
+    "test-watch": "ava --watch --verbose",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.* --no-semi && prettier --write --plugin-search-dir=. ./test/**/*.js --no-semi",
     "validate": "jshint src/"
   },
@@ -15,7 +15,7 @@
     "jshint": "^2.10.3",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "rollup": "^1.12.0",
+    "rollup": "^1.27.9",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
