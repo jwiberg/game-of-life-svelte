@@ -1,7 +1,6 @@
 <script>
   import World from "./World.svelte"
   import ControlPanel from "./ControlPanel.svelte"
-  import GameOfLife from "./game-of-life"
 
   let cells = []
   let cellsCalculated = []
@@ -9,7 +8,6 @@
   setInterval(() => {
     cells.push({ x: 50, y: 50, id: Math.floor(Math.random() * 9999) })
     cellsCalculated = cells
-    GameOfLife.test()
   }, 500)
 </script>
 
