@@ -2,12 +2,12 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "prettier --write --plugin-search-dir=. src/**/*.* --no-semi && rollup -c",
+    "build": "prettier --write --plugin-search-dir=. ./src/**/*.* --no-semi && prettier --write --plugin-search-dir=. ./test/**/*.js --no-semi && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
     "test": "ava",
     "test-watch": "ava --watch",
-    "format": "prettier --write --plugin-search-dir=. ./src/**/*.* --no-semi",
+    "format": "prettier --write --plugin-search-dir=. ./src/**/*.* --no-semi && prettier --write --plugin-search-dir=. ./test/**/*.js --no-semi",
     "validate": "jshint src/"
   },
   "devDependencies": {
@@ -24,6 +24,12 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "esm": "^3.2.25",
     "sirv-cli": "^0.4.4"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
   }
 }
