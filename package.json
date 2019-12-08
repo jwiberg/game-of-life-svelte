@@ -6,7 +6,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "test": "ava",
-    "test-watch": "ava --watch --verbose",
+    "test-watch": "ava --watch",
+    "test-watch-verbose": "ava --watch --verbose",
     "format": "prettier --write --plugin-search-dir=. ./src/**/*.* --no-semi && prettier --write --plugin-search-dir=. ./test/**/*.js --no-semi",
     "validate": "jshint src/"
   },
