@@ -13,25 +13,10 @@ export function generateNext(previous) {
   let next = createEmptyGrid(previous[0].length, previous.length)
   for (let row = 0; row < previous.length; row++) {
     for (let col = 0; col < previous[row].length; col++) {
-      const neighbourCount = countNeighbours(row, col, previous)
-      //Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-      //Any live cell with more than three live neighbours dies, as if by overpopulation.
+      const count = countNeighbours(row, col, previous)
       if (
-        isLiveAndHasFewerThanTwoLiveNeighbours(
-          neighbourCount,
-          previous[row][col]
-        ) ||
-        isOverpopulation(neighbourCount, previous[row][col])
-      ) {
-        next[row][col] = false
-        //Any live cell with two or three live neighbours lives on to the next generation.
-        //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.r
-      } else if (
-        isLiveAndHasTwoOrThreeLiveNeighbours(
-          neighbourCount,
-          previous[row][col]
-        ) ||
-        isNewborn(neighbourCount, previous[row][col])
+        isAliveAndHasTwoOrThreeNeighbours(count, previous[row][col]) ||
+        isNewborn(count, previous[row][col])
       ) {
         next[row][col] = true
       }
@@ -44,17 +29,10 @@ function isNewborn(neighbourCount, cell) {
   return neighbourCount === 3 && cell === false
 }
 
-function isOverpopulation(neighbourCount, cell) {
-  return neighbourCount > 3 && cell === true
-}
-
-function isLiveAndHasTwoOrThreeLiveNeighbours(neighbourCount, cell) {
+function isAliveAndHasTwoOrThreeNeighbours(neighbourCount, cell) {
   return (neighbourCount === 2 || neighbourCount === 3) && cell === true
 }
 
-function isLiveAndHasFewerThanTwoLiveNeighbours(neighbourCount, cell) {
-  return neighbourCount < 2 && cell === true
-}
 
 function countNeighbours(row, col, previous) {
   let neighbourCount = 0
