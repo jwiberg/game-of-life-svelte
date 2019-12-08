@@ -33,7 +33,6 @@ function isAliveAndHasTwoOrThreeNeighbours(neighbourCount, cell) {
   return (neighbourCount === 2 || neighbourCount === 3) && cell === true
 }
 
-
 function countNeighbours(row, col, previous) {
   let neighbourCount = 0
   for (let x = -1; x < 2; x += 1) {
