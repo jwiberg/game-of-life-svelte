@@ -3,12 +3,12 @@
   import * as gol from "./game-of-life"
 
   export let previous = []
-  export let cellsCalculated = []
+  export let next = []
 
   const cols = [...Array(100).keys()]
   const rows = [...Array(100).keys()]
   const ids = [...Array(cols.length * rows.length).keys()]
-  /* Change name */
+
   let living
 
   /*
@@ -26,7 +26,7 @@
   }
 
   $: {
-    living = cellsCalculated
+    living = next
   }
 </script>
 
