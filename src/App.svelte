@@ -13,7 +13,7 @@
       console.log("Calculating...")
       cellsCalculated = gol.generateNext(cells)
     }
-  }, 1500)
+  }, 1000)
 </script>
 
 <ControlPanel bind:running />

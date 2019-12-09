@@ -8,6 +8,7 @@
   const cols = [...Array(100).keys()]
   const rows = [...Array(100).keys()]
   const ids = [...Array(cols.length * rows.length).keys()]
+  /* Change name */
   let living
 
   /*
