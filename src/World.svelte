@@ -8,7 +8,7 @@
   const cols = [...Array(100).keys()]
   const rows = [...Array(100).keys()]
   const ids = [...Array(cols.length * rows.length).keys()]
-  let living 
+  let living
 
   /*
     What if we create grid in on mount...
@@ -21,8 +21,8 @@
   }
 
   $: {
-     cells = living
-   }
+    cells = living
+  }
 
   $: {
     living = cellsCalculated

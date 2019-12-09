@@ -6,7 +6,7 @@
   let cells = gol.createEmptyGrid(100, 100)
   let cellsCalculated = gol.createEmptyGrid(100, 100)
 
-  setInterval(() => {    
+  setInterval(() => {
     console.log("Calculating...")
     cellsCalculated = gol.generateNext(cells)
   }, 2000)
