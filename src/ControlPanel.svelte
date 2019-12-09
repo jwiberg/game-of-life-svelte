@@ -19,8 +19,8 @@
 <style>
   .button-panel {
     position: fixed;
-    top: 5%;
-    left: 2.5%;
+    top: 1em;
+    left: 1em;
   }
 
   button {
