@@ -1,5 +1,5 @@
 import test from "ava"
-import * as gol from "game-of-life"
+import * as gol from "../src/game-of-life"
 
 test("Returns initialized grid for starting point", t => {
   t.deepEqual(gol.createEmptyGrid(5, 5), [
