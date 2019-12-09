@@ -1,5 +1,6 @@
 <script>
   import Cell from "./Cell.svelte"
+  import * as gol from "./game-of-life"
 
   export let cells = []
   export let cellsCalculated = []
@@ -7,7 +8,7 @@
   const cols = [...Array(100).keys()]
   const rows = [...Array(100).keys()]
   const ids = [...Array(cols.length * rows.length).keys()]
-  let living = new Array(ids.length).fill(false)
+  let living 
 
   /*
     What if we create grid in on mount...
@@ -20,24 +21,11 @@
   }
 
   $: {
-    cellsCalculated.forEach(cell => {
-      living[cell.id] = true
-    })
-  }
+     cells = living
+   }
 
   $: {
-    cells = []
-    living.forEach((isLiving, id) => {
-      if (isLiving) {
-        const data = document.getElementById(id).dataset
-        cells.push({
-          x: data.x,
-          y: data.y,
-          id: id
-        })
-      }
-    })
-    cells = cells
+    living = cellsCalculated
   }
 </script>
 

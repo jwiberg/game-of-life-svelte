@@ -25,8 +25,8 @@
 </style>
 
 <div
-  class={living[id] ? 'living' : 'dead'}
+  class={living[y][x] ? 'living' : 'dead'}
   data-x={x}
   data-y={y}
   {id}
-  on:click|stopPropagation={() => (living[id] = !living[id])} />
+  on:click|stopPropagation={() => (living[y][x] = !living[y][x])} />

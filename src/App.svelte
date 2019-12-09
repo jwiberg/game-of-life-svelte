@@ -1,14 +1,15 @@
 <script>
   import World from "./World.svelte"
   import ControlPanel from "./ControlPanel.svelte"
+  import * as gol from "./game-of-life"
 
-  let cells = []
-  let cellsCalculated = []
+  let cells = gol.createEmptyGrid(100, 100)
+  let cellsCalculated = gol.createEmptyGrid(100, 100)
 
-  setInterval(() => {
-    cells.push({ x: 50, y: 50, id: Math.floor(Math.random() * 9999) })
-    cellsCalculated = cells
-  }, 500)
+  setInterval(() => {    
+    console.log("Calculating...")
+    cellsCalculated = gol.generateNext(cells)
+  }, 2000)
 </script>
 
 <ControlPanel />
