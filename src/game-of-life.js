@@ -11,17 +11,17 @@ export function createEmptyGrid(worldWidth, worldHeight) {
 
 export function generateNext(previous) {
   let next = createEmptyGrid(previous[0].length, previous.length)
-  for (let row = 0; row < previous.length; row++) {
-    for (let col = 0; col < previous[row].length; col++) {
-      const count = countNeighbours(row, col, previous)
+  previous.forEach((row, y) => {
+    row.forEach((cell, x) => {
+      const count = countNeighbours(y, x, previous)
       if (
-        isAliveAndHasTwoOrThreeNeighbours(count, previous[row][col]) ||
-        isNewborn(count, previous[row][col])
+        isAliveAndHasTwoOrThreeNeighbours(count, cell) ||
+        isNewborn(count, cell)
       ) {
-        next[row][col] = true
+        next[y][x] = true
       }
-    }
-  }
+    })
+  })
   return next
 }
 
