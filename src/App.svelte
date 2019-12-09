@@ -3,7 +3,7 @@
   import ControlPanel from "./ControlPanel.svelte"
   import * as gol from "./game-of-life"
 
-  export let running = true
+  export let running = false
 
   let cells = gol.createEmptyGrid(100, 100)
   let cellsCalculated = gol.createEmptyGrid(100, 100)
@@ -13,7 +13,7 @@
       console.log("Calculating...")
       cellsCalculated = gol.generateNext(cells)
     }
-  }, 2000)
+  }, 1500)
 </script>
 
 <ControlPanel bind:running />
