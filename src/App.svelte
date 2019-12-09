@@ -3,9 +3,10 @@
   import ControlPanel from "./ControlPanel.svelte"
   import * as gol from "./game-of-life"
 
+  export let running = true
+
   let cells = gol.createEmptyGrid(100, 100)
   let cellsCalculated = gol.createEmptyGrid(100, 100)
-  let running = true
 
   setInterval(() => {
     if (running) {
@@ -15,5 +16,5 @@
   }, 2000)
 </script>
 
-<ControlPanel />
+<ControlPanel bind:running />
 <World bind:cells {cellsCalculated} />

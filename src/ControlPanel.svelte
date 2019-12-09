@@ -1,10 +1,14 @@
 <script>
+  export let running = false
+
   function start() {
     console.log("start")
+    running = true
   }
 
   function stop() {
     console.log("stop")
+    running = false
   }
 
   function reset() {
@@ -49,5 +53,5 @@
 <div class="button-panel">
   <button class="start" on:click={start}>Start</button>
   <button class="stop" on:click={stop}>Stop</button>
-  <button class="reset" on:click={reset}>Reset</button>
+  <!-- button class="reset" on:click={reset}>Reset</button -->
 </div>
