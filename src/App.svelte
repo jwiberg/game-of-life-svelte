@@ -5,10 +5,13 @@
 
   let cells = gol.createEmptyGrid(100, 100)
   let cellsCalculated = gol.createEmptyGrid(100, 100)
+  let running = true
 
   setInterval(() => {
-    console.log("Calculating...")
-    cellsCalculated = gol.generateNext(cells)
+    if (running) {
+      console.log("Calculating...")
+      cellsCalculated = gol.generateNext(cells)
+    }
   }, 2000)
 </script>
 
