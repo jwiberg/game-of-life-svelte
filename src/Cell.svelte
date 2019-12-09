@@ -2,7 +2,6 @@
   export let living
   export let x
   export let y
-  export let id
 </script>
 
 <style>
@@ -28,5 +27,4 @@
   class={living[y][x] ? 'living' : 'dead'}
   data-x={x}
   data-y={y}
-  {id}
   on:click|stopPropagation={() => (living[y][x] = !living[y][x])} />
