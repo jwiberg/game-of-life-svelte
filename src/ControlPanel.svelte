@@ -1,13 +1,13 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition"
 
   export let running = false
-  let showNotification = false;
-  let notificationText;
+  let showNotification = false
+  let notificationText
 
   function start() {
     running = true
-    showNotification = true;
+    showNotification = true
     notify("Started")
   }
 
@@ -24,7 +24,9 @@
   function notify(text) {
     showNotification = true
     notificationText = text
-    setTimeout(() => {showNotification = false}, 2000)
+    setTimeout(() => {
+      showNotification = false
+    }, 2000)
   }
 </script>
 
@@ -32,7 +34,7 @@
   .button-panel {
     position: fixed;
     top: 1em;
-    left: 1em;    
+    left: 1em;
   }
 
   .notification {
@@ -70,10 +72,10 @@
 </style>
 
 <div class="button-panel">
-    <button class="start" on:click={start}>Start</button>
-    <button class="stop" on:click={stop}>Stop</button>
-    <!-- button class="reset" on:click={reset}>Reset</button -->
-    {#if showNotification}
-      <div out:fade class="notification">{notificationText}</div>
-    {/if}
+  <button class="start" on:click={start}>Start</button>
+  <button class="stop" on:click={stop}>Stop</button>
+  <!-- button class="reset" on:click={reset}>Reset</button -->
+  {#if showNotification}
+    <div out:fade class="notification">{notificationText}</div>
+  {/if}
 </div>
