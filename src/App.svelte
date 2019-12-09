@@ -5,16 +5,15 @@
 
   export let running = false
 
-  let cells = gol.createEmptyGrid(100, 100)
+  let previous = gol.createEmptyGrid(100, 100)
   let cellsCalculated = gol.createEmptyGrid(100, 100)
 
   setInterval(() => {
     if (running) {
-      console.log("Calculating...")
-      cellsCalculated = gol.generateNext(cells)
+      cellsCalculated = gol.generateNext(previous)
     }
   }, 1000)
 </script>
 
 <ControlPanel bind:running />
-<World bind:cells {cellsCalculated} />
+<World bind:previous {cellsCalculated} />

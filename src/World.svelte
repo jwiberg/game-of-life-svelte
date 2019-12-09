@@ -2,7 +2,7 @@
   import Cell from "./Cell.svelte"
   import * as gol from "./game-of-life"
 
-  export let cells = []
+  export let previous = []
   export let cellsCalculated = []
 
   const cols = [...Array(100).keys()]
@@ -22,7 +22,7 @@
   }
 
   $: {
-    cells = living
+    previous = living
   }
 
   $: {
