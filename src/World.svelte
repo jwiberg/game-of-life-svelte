@@ -2,19 +2,11 @@
   import Cell from "./Cell.svelte"
   import * as gol from "./game-of-life"
 
+  export let width, height
   export let previous = []
   export let next = []
 
-  const cols = [...Array(100).keys()]
-  const rows = [...Array(100).keys()]
-
   let living
-
-  function getIdForCell() {
-    const id = ids[0]
-    ids.shift()
-    return id
-  }
 
   $: {
     previous = living
@@ -35,8 +27,8 @@
 
 <main>
   <div class="world">
-    {#each cols as c}
-      {#each rows as r}
+    {#each [...Array(width).keys()] as c}
+      {#each [...Array(height).keys()] as r}
         <Cell x={c} y={r} bind:living />
       {/each}
     {/each}

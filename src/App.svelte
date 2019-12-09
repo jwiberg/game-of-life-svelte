@@ -5,8 +5,11 @@
 
   export let running = false
 
-  let previous = gol.createEmptyGrid(100, 100)
-  let next = gol.createEmptyGrid(100, 100)
+  const width = 100
+  const height = 100
+
+  let previous = gol.createEmptyGrid(width, height)
+  let next = gol.createEmptyGrid(width, height)
 
   setInterval(() => {
     if (running) {
@@ -16,4 +19,4 @@
 </script>
 
 <ControlPanel bind:running />
-<World bind:previous {next} />
+<World bind:previous {next} {width} {height} />
