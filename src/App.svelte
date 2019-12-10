@@ -4,19 +4,36 @@
   import * as gol from "./game-of-life"
 
   export let running = false
+  let speed = 0
+  let intervalTime = 2000
+
+  //TODO: remove this
+  let interval = setInterval(() => {
+    if (running) {
+      next = gol.generateNext(previous)
+    }
+  }, intervalTime)
+
+  $: {
+    intervalTime = 2000 - speed
+
+    console.log(intervalTime)
+
+    clearInterval(interval)
+
+    interval = setInterval(() => {
+      if (running) {
+        next = gol.generateNext(previous)
+      }
+    }, intervalTime)
+  }
 
   const width = 100
   const height = 100
 
   let previous = gol.createEmptyGrid(width, height)
   let next = gol.createEmptyGrid(width, height)
-
-  setInterval(() => {
-    if (running) {
-      next = gol.generateNext(previous)
-    }
-  }, 1000)
 </script>
 
-<ControlPanel bind:running />
+<ControlPanel bind:running bind:speed />
 <World bind:previous {next} {width} {height} />
