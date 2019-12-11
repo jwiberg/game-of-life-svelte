@@ -1,32 +1,7 @@
 <script>
-  export let running = false
+  import { createEventDispatcher } from "svelte"
+  const dispatch = createEventDispatcher()
   export let speed = 0
-
-  let showNotification = false
-  let notificationText
-
-  function start() {
-    running = true
-    showNotification = true
-    notify("Started")
-  }
-
-  function stop() {
-    running = false
-    notify("Stopped")
-  }
-
-  function reset() {
-    notify("Reset")
-  }
-
-  function notify(text) {
-    showNotification = true
-    notificationText = text
-    setTimeout(() => {
-      showNotification = false
-    }, 2000)
-  }
 </script>
 
 <style>
@@ -34,13 +9,6 @@
     position: fixed;
     top: 1em;
     left: 1em;
-    text-align: center;
-  }
-
-  .notification {
-    padding: 0.5em;
-    font-size: 2em;
-    font-family: cursive;
     text-align: center;
   }
 
@@ -167,7 +135,4 @@
   <div>
     <input type="range" bind:value={speed} min="0" max="1900" />
   </div>
-  {#if showNotification}
-    <div out:fade class="notification">{notificationText}</div>
-  {/if}
 </div>

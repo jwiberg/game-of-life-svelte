@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition"
   import World from "./World.svelte"
   import ControlPanel from "./ControlPanel.svelte"
   import * as gol from "./game-of-life"
@@ -7,12 +8,22 @@
   export let running = false
   let speed = 0
   let interval
+  let showNotification = false
+  let notificationText
 
-  const width = 100 //x
-  const height = 100 //y
+  const width = 100
+  const height = 100
 
   let previous = gol.createEmptyGrid(width, height)
   let next = gol.createEmptyGrid(width, height)
+
+  function notify(text) {
+    showNotification = true
+    notificationText = text
+    setTimeout(() => {
+      showNotification = false
+    }, 2000)
+  }
 
   onMount(() => {
     next[7][10] = true
@@ -29,21 +40,44 @@
     }, 2000 - speed)
   }
 
+  $: {
+    notify(Math.round((speed + 100) / 100))
+  }
+
   function handleClick(event) {
     const buttonPressed = event.target.id
     switch (buttonPressed) {
       case "start":
         running = true
+        notify("Started")
         break
       case "stop":
         running = false
+        notify("Stopped")
         break
       case "reset":
         next = gol.createEmptyGrid(width, height)
+        notify("Reset")
         break
     }
   }
 </script>
 
-<ControlPanel bind:running bind:speed on:click={handleClick} />
+<style>
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+    font-family: cursive;
+    text-align: center;
+  }
+</style>
+
+<ControlPanel bind:speed on:click={handleClick} />
+{#if showNotification}
+  <div out:fade class="centered">{notificationText}</div>
+{/if}
 <World bind:previous {next} {width} {height} />
