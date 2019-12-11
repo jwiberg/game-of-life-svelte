@@ -13,7 +13,6 @@
   }
 
   function stop() {
-    console.log("stop")
     running = false
     notify("Stopped")
   }
