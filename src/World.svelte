@@ -1,10 +1,9 @@
 <script>
   import Cell from "./Cell.svelte"
-  import * as gol from "./game-of-life"
 
   export let width, height
-  export let previous = []
-  export let next = []
+  export let previous;
+  export let next;
 
   let living
 
