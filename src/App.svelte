@@ -63,6 +63,17 @@
   }
 </script>
 
-<ControlPanel bind:speed on:click={handleClick} />
-<Notification {showNotification} {notificationText} />
+<style>
+  .control-panel {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    text-align: center;
+  }
+</style>
+
+<div class="control-panel">
+  <ControlPanel bind:speed on:click={handleClick} />
+  <Notification {showNotification} {notificationText} />
+</div>
 <World bind:previous {next} {width} {height} />

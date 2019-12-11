@@ -5,13 +5,6 @@
 </script>
 
 <style>
-  .button-panel {
-    position: fixed;
-    top: 1em;
-    left: 1em;
-    text-align: center;
-  }
-
   button {
     font-family: cursive;
     font-size: 2em;
