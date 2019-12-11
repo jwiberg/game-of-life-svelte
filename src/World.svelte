@@ -2,8 +2,8 @@
   import Cell from "./Cell.svelte"
 
   export let width, height
-  export let previous;
-  export let next;
+  export let previous
+  export let next
 
   let living
 
