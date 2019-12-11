@@ -40,9 +40,9 @@
     }, 2000 - speed)
   }
 
-  $: {
-    notify(Math.round((speed + 100) / 100))
-  }
+  /*$: {
+    notify("Speed: " + Math.round((speed + 100) / 100))
+  }*/
 
   function handleClick(event) {
     const buttonPressed = event.target.id
@@ -57,6 +57,7 @@
         break
       case "reset":
         next = gol.createEmptyGrid(width, height)
+        running = false
         notify("Reset")
         break
     }
