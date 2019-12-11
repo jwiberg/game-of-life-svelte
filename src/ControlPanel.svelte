@@ -1,10 +1,9 @@
 <script>
-  import { fade } from "svelte/transition"
-
   export let running = false
+  export let speed = 0
+
   let showNotification = false
   let notificationText
-  export let speed = 0
 
   function start() {
     running = true
@@ -162,9 +161,9 @@
 </style>
 
 <div class="button-panel">
-  <button class="start" on:click={start}>Start</button>
-  <button class="stop" on:click={stop}>Stop</button>
-  <button class="reset" on:click={reset}>Reset</button>
+  <button class="start" id="start" on:click>Start</button>
+  <button class="stop" id="stop" on:click>Stop</button>
+  <button class="reset" id="reset" on:click>Reset</button>
   <div>
     <input type="range" bind:value={speed} min="0" max="1900" />
   </div>

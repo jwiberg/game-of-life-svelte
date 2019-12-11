@@ -28,7 +28,22 @@
       }
     }, 2000 - speed)
   }
+
+  function handleClick(event) {
+    const buttonPressed = event.target.id
+    switch (buttonPressed) {
+      case "start":
+        running = true
+        break
+      case "stop":
+        running = false
+        break
+      case "reset":
+        next = gol.createEmptyGrid(width, height)
+        break
+    }
+  }
 </script>
 
-<ControlPanel bind:running bind:speed />
+<ControlPanel bind:running bind:speed on:click={handleClick} />
 <World bind:previous {next} {width} {height} />
